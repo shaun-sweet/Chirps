@@ -1,11 +1,17 @@
 <div class="row">
+  <div class="col s12 center">
+    <h1 class="light-blue-text">Your Chirps</h1>
+  </div>
+</div>
+
+<div class="row">
   <div class="col s12 m4">
     <div class="card">
       <div class="card-image">
         <img src="<%= @user.image %>" class="responsive-img" alt="profile image">
       </div>
       <div class="card-content">
-        <h4 class="center"><%= @user.username %></h4>
+        <h4 class="center light-blue-text"><%= @user.username %></h4>
         <p>Name: <%= @user.first_name %> <%= @user.last_name %></p>
         <p>Contact: <%= @user.email %></p>
       </div>
@@ -32,6 +38,7 @@
           <div class="card-action">
             <a href="#">Chirpeet</a>
             <a href="#">Like</a>
+            <a href="#">Comment</a>
           </div>
         <% end %>
       </div>
