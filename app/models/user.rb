@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
 
   validates :username, presence: true, length: { in: 5..50 }
   has_secure_password
-  validates :email, presence: true, length: {maximum: 250}
+  validates :email, presence: true, length: {maximum: 250}, uniqueness: true
   validates :email, format: {:with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i}
   validates :first_name, presence: true, length: { in: 3..100 }
   validates :last_name, presence: true, length: { in: 3..100 }
