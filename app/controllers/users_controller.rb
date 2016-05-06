@@ -49,6 +49,12 @@ put '/users/:id' do
   end
 end
 
+#User follow another user
+get '/users/:id/follow/:to_follow_id' do
+  Following.create(follower_id: params[:id], user_id: params[:to_follow_id])
+  redirect '/'
+end
+
 # Destroy action
 delete 'users/:id' do
   @user = User.find(params[:id])
