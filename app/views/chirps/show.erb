@@ -1,17 +1,40 @@
 <div class="container">
-  <%= @chirp.body %>
-  <br>
-  <% @chirp.comments.each do |comment| %>
-  <div class="comment">
-    <%= comment.body %>
+
+  <div class="chirp">
+    <div class="row">
+      <div class="col l3 align-left ">
+        <%= @current_user.username %></div>
+      </div>
+      <%= @chirp.body %>
+      <div class="row">
+        <div class="col l1">
+          <!-- chirp like  -->
+          <form action="/chirps/<%= @chirp.id %>/like" method="post">
+            <input type="submit" value="Like" name="like"></input>
+          </form> Likes: <%= @chirp.likes.count %>
+        </div>
+      </div>
+      <br>
+      <% @chirp.comments.each do |comment| %>
+      <div class="comment">
+        <%= comment.body %>
+        <div class="row">
+          <div class="col l1">
+          <!-- Like form -->
+          <form action="/comment/<%= comment.id %>/like/<%= @chirp.id %>" method="post">
+              <input type="submit" value="Like" name="like"></input>
+            </form> Likes: <%= comment.likes.count %>
+          </div>
+        </div>
+      </div>
+      <!-- might want to remove -->
+      <br>
+      <% end %>
+    </div>
+    <div class="comment-new">
+      <form action="/chirps/<%= @chirp.id %>/comment" method="post">
+        <input type="text" name="body"></input>
+        <input type="submit" value="Comment"></input>
+      </form>
+    </div>
   </div>
-  <!-- might want to remove -->
-  <br>
-  <% end %>
-  <div class="comment-new">
-    <form action="/chirps/<%= @chirp.id %>/comment" method="post">
-      <input type="text" name="body"></input>
-      <input type="submit" value="Comment"></input>
-    </form>
-  </div>
-</div>
