@@ -1,6 +1,6 @@
 helpers do
-
-  def follow_him(following, followee)
+  def current_user
+    User.find(session[:id])
 
   end
 

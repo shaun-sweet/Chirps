@@ -1,16 +1,22 @@
-<footer class="page-footer deep-purple darken-2">
+<footer class="page-footer deep-purple darken-2 white-text">
   <div class="container">
     <div class="row">
-
-      <!--First Column Footer-->
-      <div class="col l2 offset-l3 s12 center white-text">
-        <ul>
-          <li>Link 1</li>
-          <li>Link 1</li>
-          <li>Link 1</li>
-          <li>Link 1</li>
-        </ul>
-      </div>
+      <% if session[:id] %>
+        <!--First Column Footer-->
+        <div class="col l2 offset-l3 s12 center">
+          <ul>
+            <li><a href="/users">Chirps</a></li>
+            <li><a href="/users/<%= current_user %>">Profile</a></li>
+            <li><a href="/followers">Followers</a></li>
+            <li><a href="/followings">Followings</a></li>
+          </ul>
+        </div>
+      <% else %>
+        <div class="col s12 center">
+          <h3>Welcome to Chirpy</h3>
+          <p>Get ready to chirp your feathers off.</p>
+        </div>
+      <% end %>
     </div>
   </div>
   <div class="footer-copyright deep-purple darken-3 center">
