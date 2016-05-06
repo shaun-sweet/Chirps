@@ -24,11 +24,3 @@ get '/logout' do
   session.clear
   redirect '/'
 end
-
-get '/secret' do
-  if session[:id]
-    erb :secret
-  else
-    redirect '/login?error=You%20should%20be%20logged%20in%20to%20access!'
-  end
-end

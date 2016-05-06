@@ -1,23 +1,27 @@
 # Index action
 get '/users' do
+  logged_in?
   @users = User.all
   erb :'users/index'
 end
 
 # Show action
 get '/users/:id' do
+  logged_in?
   @user = User.find(params[:id])
   erb :'users/show'
 end
 
 # Edit action
 get '/users/:id/edit' do
+  logged_in?
   @user = User.find(params[:id])
   erb :'users/edit'
 end
 
 # Update action
 put '/users/:id' do
+  logged_in?
   @user = User.find(params[:id])
 
   @user.assign_attributes(params[:user])
@@ -55,3 +59,24 @@ delete 'users/:id' do
     redirect '/users?errors=User%20was%20not%20destroyed.'
   end
 end
+
+# User followers page
+get "users/:id/followers" do
+  logged_in?
+
+  @user = User.find(params[:id])
+
+  erb :'users/followers'
+end
+
+# User followings page
+get "users/:id/followings" do
+  logged_in?
+
+  @user = User.find(params[:id])
+
+  erb :'users/followings'
+end
+
+
+
