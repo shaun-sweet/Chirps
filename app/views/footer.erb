@@ -5,10 +5,10 @@
         <!--First Column Footer-->
         <div class="col l2 offset-l3 s12 center">
           <ul>
-            <li><a href="/users">Chirps</a></li>
-            <li><a href="/users/<%= current_user %>">Profile</a></li>
-            <li><a href="/followers">Followers</a></li>
-            <li><a href="/followings">Followings</a></li>
+            <li><a href="/users/" class="white-text">Chirps</a></li>
+            <li><a href="/users/<%= current_user.id %>" class="white-text">Profile</a></li>
+            <li><a href="/users/<%= current_user.id %>/followers" class="white-text">Followers</a></li>
+            <li><a href="/users/<%= current_user.id %>/followings" class="white-text">Followings</a></li>
           </ul>
         </div>
       <% else %>

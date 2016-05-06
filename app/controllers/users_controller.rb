@@ -67,7 +67,7 @@ delete 'users/:id' do
 end
 
 # User followers page
-get "users/:id/followers" do
+get "/users/:id/followers" do
   logged_in?
 
   @user = User.find(params[:id])
@@ -76,13 +76,11 @@ get "users/:id/followers" do
 end
 
 # User followings page
-get "users/:id/followings" do
+get "/users/:id/followings" do
   logged_in?
 
   @user = User.find(params[:id])
 
   erb :'users/followings'
 end
-
-
 
