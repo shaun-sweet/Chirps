@@ -1,0 +1,27 @@
+<div class="row">
+  <div class="container center">
+    <div class="col s12 m6 offset-m3 l4 offset-l4">
+      <h1 class="light-green-text">Welcome to <span class="light-blue-text">Chirpy</span></h1>
+
+      <form action="/login" method="POST">
+        <span><%= @error %></span><br>
+        <div class="row">
+          <div class="input-field col s12">
+            <label for="email" data-error="wrong" data-success="right">Email</label>
+            <input id="input_text" name="email" type="email" class="validate" length="65">
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-field col s12">
+            <label for="password">Password</label>
+            <input id="input_text" type="password" name="password" class="validate" length="65">
+          </div>
+        </div>
+        <input type="submit" value="Login" class="btn waves-effect waves-light light-green"></input>
+      </form>
+    </div>
+  </div>
+</div>
+
+
