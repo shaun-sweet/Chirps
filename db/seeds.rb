@@ -31,3 +31,11 @@ end
     )
 end
 
+User.create(
+    username: "fuck following_mes wtf?",
+    password: "password",
+    email: "following@followmes.com",
+    first_name: "why are you following me?",
+    image: "http://illuzone.net/wp-content/uploads/2015/01/Red-Panda-7.jpg"
+    )
+

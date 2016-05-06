@@ -18,6 +18,7 @@ post '/users' do
     session[:id] = @user.id
     redirect '/users'
   else
+    p @user.errors.full_messages
     redirect '/users/new?error=Oops!%20The%20user%20was%20not%20created.'
   end
 end
