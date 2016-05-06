@@ -26,7 +26,7 @@ get '/users/:id' do
   logged_in?
   @user = User.find(params[:id])
 
-  relation = Following.find_by(user_id: 2, follower_id:1)
+  relation = Following.find_by(user_id: params[:id], follower_id: @current_user.id)
   puts ">>>>>>>>>>>#{relation} ....."
   erb :'users/show'
 end
