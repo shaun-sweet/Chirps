@@ -10,29 +10,30 @@
         <p>Contact: <%= @user.email %></p>
       </div>
       <% if @user.id == session[:id] %>
-        <div class="card-action">
-          <a href="/users/<%= @user.id %>/edit">Settings</a>
-        </div>
+      <div class="card-action">
+        <a href="/users/<%= @user.id %>/edit">Settings</a>
+      </div>
       <% end %>
     </div>
   </div>
 
   <% @user.chirps.each do |chirp| %>
-    <div class="col s12 m8">
-      <div class="card blue-grey darken-1">
-        <div class="card-content white-text">
-          <span class="card-title"><%= @user.username %></span>
-          <p><%= chirp.body %></p>
-          <p class="light-blue-text">Likes: <%= @user.likes.size %></p>
-        </div>
-        <% if @user.id != session[:id] %>
-          <div class="card-action">
-            <a href="#">Chirpeet</a>
-            <a href="#">Like</a>
-          </div>
-        <% end %>
+  <div class="col s12 m8">
+    <div class="card blue-grey darken-1">
+      <div class="card-content white-text">
+        <span class="card-title"><%= @user.username %></span>
+        <p><%= chirp.body %></p>
+        <p class="light-blue-text">Likes: <%= @user.likes.size %></p>
       </div>
+      <% if @user.id != session[:id] %>
+      <div class="card-action">
+        <a href="#">Chirpeet</a>
+        <form action="/like/<%= chirp.id %>" method="post"><input type="submit" value="Like" name="like"></input>
+        </form> Likes: <%= chirp.likes.count %>
+      </div>
+      <% end %>
     </div>
+  </div>
   <% end %>
 </div>
 
