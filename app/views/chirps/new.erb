@@ -1,4 +1,13 @@
-<form action='/chirps' method='post'>
-<input type='text' name='body'></input>
-<input type='submit' value='chirp'></input>
-</form>
+<h1 class="light-blue-text center">Create a new Chirp</h1>
+
+<div class="row">
+  <form class="col s12 l8 offset-l2" action="/chirps" method="post">
+    <div class="input-field col s12">
+      <textarea id="textarea1" name='body' class="validate materialize-textarea"></textarea>
+      <label for="textarea1">Body</label>
+    </div>
+    <div class="row center">
+      <input type='submit' value='Chirp' class="btn waves-effect waves-light light-green"></input>
+    </div>
+  </form>
+</div>
