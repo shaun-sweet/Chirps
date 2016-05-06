@@ -1,0 +1,7 @@
+<h1><%= @user.first_name %>'s Followings</h1>
+
+<ul>
+  <% @user.followings.each do |following| %>
+    <li><a href="/users/<%= following.id %>"><%= following.username %></a></li>
+  <% end %>
+</ul>

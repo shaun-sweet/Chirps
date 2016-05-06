@@ -25,3 +25,5 @@ get '/chirps/:id' do
   @chirp = Chirp.find(params[:id])
   erb :'/chirps/show'
 end
+
+
