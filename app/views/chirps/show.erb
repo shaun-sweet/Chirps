@@ -1,1 +1,9 @@
-<%= @chirp.body %>
+<div class="container">
+  <%= @chirp.body %>
+  <div class="comment-new">
+    <form action="" method="post">
+      <input type="text" name="comment"></input>
+      <input type="submit" value="Comment"></input>
+    </form>
+  </div>
+</div>
