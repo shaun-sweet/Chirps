@@ -25,7 +25,7 @@ put '/users/:id' do
   if @user.save
     redirect '/users'
   else
-    erb :'users/edit?errors=Oops! The user was not updated.'
+    erb :'users/edit?errors=User%20was%20not%20updated.'
   end
 end
 
@@ -41,7 +41,7 @@ post '/users' do
   if @user.save
     redirect '/users'
   else
-    redirect '/users/new?error=Oops! The user was not created.'
+    redirect '/users/new?error=Oops!%20The%20user%20was%20not%20created.'
   end
 end
 
@@ -52,6 +52,6 @@ delete 'users/:id' do
   if @user.destroy
     redirect '/users'
   else
-    redirect '/users?errors=User was not destroyed.'
+    redirect '/users?errors=User%20was%20not%20destroyed.'
   end
 end
