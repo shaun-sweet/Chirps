@@ -14,7 +14,8 @@ post '/login' do
       session[:id] = new_user.id
       redirect '/'
     else
-      redirect '/login?error=Wrong combination of user and password'
+      # FIX THIS ERROR MESSAGE
+      redirect '/login?error=Wrong%20combination%20of%20user%20and%20password'
     end
   end
 end
@@ -28,6 +29,6 @@ get '/secret' do
   if session[:id]
     erb :secret
   else
-    redirect '/login?error=You should be logged in to access!'
+    redirect '/login?error=You%20should%20be%20logged%20in%20to%20access!'
   end
 end
