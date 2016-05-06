@@ -24,15 +24,16 @@
   </div>
 
   <% @user.followings.each do |following| %>
-    <div class="col s12 m8">
-      <div class="card blue-grey darken-1">
-        <div class="card-content white-text">
-          <span class="card-title"><%= following.username %></span>
-          <p>Latest Chirp: <%= following.chirps.last.body %></p>
-          <p class="light-blue-text">Total Likes: <%= following.likes.size %></p>
+    <% im_following = User.find(following.follower_id) %>
+      <div class="col s12 m8">
+        <div class="card blue-grey darken-1">
+          <div class="card-content white-text">
+            <span class="card-title"><%= im_following.username %></span>
+            <p>Latest Chirp: <%= im_following.chirps.last.body %></p>
+            <p class="light-blue-text">Total Likes: <%= im_following.likes.size %></p>
+          </div>
         </div>
       </div>
-    </div>
   <% end %>
 </div>
 
