@@ -1,6 +1,5 @@
 #input new chirp
 get '/chirps/new' do
-  p "THIS IS HITTING ROUTE"
   erb :'chirps/new'
 end
 
@@ -13,12 +12,16 @@ post '/chirps' do
 end
 
 get '/chirps' do
-  p "this is a fucking route"
-  erb :test
+  # We want to list all of
+  # the tweets on the user profile page
+  redirect "/login" unless session[:id]
+  @user = User.find(session[:id])
+  redirect "/users/#{ @user.id }"
 end
 
 #show individual chirp
 get '/chirps/:id' do
-@chirp = Chirp.find(params[:id])
+  redirect "/login" unless session[:id]
+  @chirp = Chirp.find(params[:id])
   erb :'/chirps/show'
 end
