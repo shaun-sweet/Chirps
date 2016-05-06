@@ -25,6 +25,9 @@ end
 get '/users/:id' do
   logged_in?
   @user = User.find(params[:id])
+
+  relation = Following.where("user_id = #{@current_user.id} AND follower_id = #{params[:id]}")
+  puts ">>>>>>>>>>>#{relation.first} ....."
   erb :'users/show'
 end
 
