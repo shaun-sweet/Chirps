@@ -1,18 +1,10 @@
 <nav>
-  <div class="nav-wrapper deep-purple lighten-2">
-    <a href="/" class="brand-logo center">Chirpy</a>
-    <a class="button-collapse" data-activates="mobile-demo" href="#"><i class="fa fa-bars"></i></a>
-    <ul class="right hide-on-med-and-down">
+  <div class="nav-wrapper deep-purple">
+    <a href="#" class="brand-logo center">Chirpy</a>
+    <ul id="nav-mobile" class="right">
       <li><a href="/followers">Followers</a></li>
       <li><a href="/followings">Followings</a></li>
-      <% if logged_in? %>
-        <li><a href="/logout">Logout</a></li>
-      <% end %>
-    </ul>
-    <ul id="mobile-demo" class="side-nav" style="left: -250px;">
-      <li><a href="/followers">Followers</a></li>
-      <li><a href="/followings">Followings</a></li>
-      <% if logged_in? %>
+      <% if session[:id] %>
         <li><a href="/logout">Logout</a></li>
       <% end %>
     </ul>
