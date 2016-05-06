@@ -1,7 +1,9 @@
+# This is the follower page who IS FOLLOWING others
+# People who are following the user
 <h1><%= @user.first_name %>'s Followers</h1>
 
 <ul>
-  <% @user.followings.each do |following| %>
-    <li><a href="/users/<%= following.id %>"><%= following.username %></a></li>
+  <% @user.following_mes.each do |following_me| %>
+    <li><a href="/users/<%= following_me.id %>"><%= following_me.username %></a></li>
   <% end %>
 </ul>

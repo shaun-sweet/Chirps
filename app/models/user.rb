@@ -3,7 +3,9 @@ class User < ActiveRecord::Base
   has_many :chirps
   has_many :comments
   has_many :likes
+
   has_many :followings, foreign_key: "follower_id", class_name: "Following"
+  has_many :following_mes, foreign_key: "user_id", class_name: "Following"
   has_many :followers, through: :followings
 
   validates :username, presence: true, length: { in: 5..50 }
