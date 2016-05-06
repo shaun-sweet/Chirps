@@ -3,7 +3,17 @@ class User < ActiveRecord::Base
   has_many :chirps
   has_many :comments
   has_many :likes
-  # belongs_to_and_has_many :following
   has_many :followings, foreign_key: "follower_id", class_name: "Following"
   has_many :followers, through: :followings
+
+  validates :username, presence: true, length: { in: 5..50 }
+  has_secure_password
+  validates :email, presence: true, length: {maximum: 250}
+  validates :email, format: {:with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i}
+  validates :first_name, presence: true, length: { in: 3..100 }
+  # validates :first_name, format: { with: /\A^[a-zA-Z]*$/}
+  # validates :last_name, presence: true, length: { in: 3..100 }
+  # validates :last_name, format: {with: /^[a-zA-Z]*$/}
+  # validates :image, format: {with: /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/}
+  # validates :uri, format: {:with => URI.regexp}
 end
