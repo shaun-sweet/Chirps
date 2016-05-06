@@ -1,3 +1,3 @@
 class Following < ActiveRecord::Base
-  # has_and_belongs_to_many :user
+  belongs_to :users
 end
