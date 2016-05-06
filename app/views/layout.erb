@@ -9,14 +9,13 @@
   <title>Chirpy</title>
 </head>
 <body>
+  <%= erb :nav %>
 
-<a href="/logout">***Logout***</a>
   <main>
     <%= yield %>
   </main>
 
-  <footer>
-  </footer>
+  <%= erb :footer %>
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="/js/init.js"></script>
