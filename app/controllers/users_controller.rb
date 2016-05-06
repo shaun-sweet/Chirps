@@ -15,6 +15,7 @@ post '/users' do
   @user = User.new(params[:user])
 
   if @user.save
+    session[:id] = @user.id
     redirect '/users'
   else
     redirect '/users/new?error=Oops!%20The%20user%20was%20not%20created.'
