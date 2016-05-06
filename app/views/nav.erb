@@ -2,9 +2,9 @@
   <div class="nav-wrapper deep-purple">
     <a href="#" class="brand-logo center">Chirpy</a>
     <ul id="nav-mobile" class="right">
-      <li><a href="/followers">Followers</a></li>
-      <li><a href="/followings">Followings</a></li>
       <% if session[:id] %>
+        <li><a href="/users/<%= current_user.id %>/followers">Followers</a></li>
+        <li><a href="/users/<%= current_user.id %>/followings">Followings</a></li>
         <li><a href="/logout">Logout</a></li>
       <% end %>
     </ul>

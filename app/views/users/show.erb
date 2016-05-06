@@ -15,8 +15,11 @@
         <p>Name: <%= @user.first_name %> <%= @user.last_name %></p>
         <p>Contact: <%= @user.email %></p>
       </div>
-      <% if @user.id != session[:id] %>
+
+      <% if !@relation %>
         <a href="/users/<%= @current_user.id %>/follow/<%= @user.id %>">Follow!</a>
+      <% else %>
+        <a href="/users/<%= @current_user.id %>/unfollow/<%= @user.id %>">Unfollow!</a>
       <% end %>
       <% if @user.id == session[:id] %>
       <div class="card-action">
@@ -46,4 +49,6 @@
   <% end %>
 </div>
 
-<a href="/users" class="btn waves-effect waves-light light-blue">Back to Users</a>
+<div class="center">
+  <a href="/users" class="btn waves-effect waves-light light-blue">Back to Users</a>
+</div>

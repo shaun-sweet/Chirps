@@ -27,6 +27,9 @@ end
 get '/users/:id' do
   logged_in?
   @user = User.find(params[:id])
+
+  @relation = Following.find_by(user_id: params[:id], follower_id: @current_user.id)
+  # puts ">>>>>>>>>>>#{relation} ....."
   erb :'users/show'
 end
 
@@ -56,6 +59,10 @@ get '/users/:id/follow/:to_follow_id' do
   Following.create(follower_id: params[:id], user_id: params[:to_follow_id])
   redirect '/'
 end
+get '/users/:id/unfollow/:to_follow_id' do
+  Following.find_by(follower_id: params[:id], user_id: params[:to_follow_id]).destroy
+  redirect '/'
+end
 
 # Destroy action
 delete 'users/:id' do
@@ -69,7 +76,7 @@ delete 'users/:id' do
 end
 
 # User followers page
-get "users/:id/followers" do
+get "/users/:id/followers" do
   logged_in?
 
   @user = User.find(params[:id])
@@ -78,13 +85,11 @@ get "users/:id/followers" do
 end
 
 # User followings page
-get "users/:id/followings" do
+get "/users/:id/followings" do
   logged_in?
 
   @user = User.find(params[:id])
 
   erb :'users/followings'
 end
-
-
 
