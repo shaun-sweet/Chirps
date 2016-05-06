@@ -1,6 +1,3 @@
-
-
-
 #input new chirp
 get '/chirps/new' do
   p "THIS IS HITTING ROUTE"
