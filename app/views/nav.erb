@@ -4,7 +4,7 @@
     <ul id="nav-mobile" class="right">
       <li><a href="/followers">Followers</a></li>
       <li><a href="/followings">Followings</a></li>
-      <% if logged_in? %>
+      <% if session[:id] %>
         <li><a href="/logout">Logout</a></li>
       <% end %>
     </ul>
