@@ -12,13 +12,16 @@
       </div>
       <div class="card-content">
         <h4 class="center light-blue-text"><%= @user.username %></h4>
-        <p>Name: <%= @user.first_name %> <%= @user.last_name %></p>
-        <p>Contact: <%= @user.email %></p>
+        <p>Name: <span class="light-blue-text"><%= @user.first_name %> <%= @user.last_name %></p></span>
+        <p>Contact: <span class="light-blue-text"><%= @user.email %></span></p>
+        <p class="center">Total Likes: <span class="light-blue-text"><%= @user.likes.size %></span></p>
       </div>
       <% if params[:id] != @current_user.id %>
         <% if !@relation %>
-          <a href="/users/<%= @current_user.id %>/follow/<%= @user.id %>">Follow!</a>
-          <p class="light-blue-text">Likes: <%= @user.likes.size %></p>
+          <div class="center">
+            <a href="/users/<%= @current_user.id %>/follow/<%= @user.id %>" class="btn waves-effect waves-light light-green">Follow</a>
+          </div>
+          <br/><br/>
         <% else %>
           <a href="/users/<%= @current_user.id %>/unfollow/<%= @user.id %>">Unfollow!</a>
         <% end %>
@@ -37,14 +40,14 @@
       <div class="card-content white-text">
         <span class="card-title"><%= @user.username %></span>
         <p><%= chirp.body %></p>
+      </div>
 
-      </div>
       <% if @user.id != session[:id] %>
-      <div class="card-action">
-        <a href="#">Chirpeet</a>
-        <form action="/like/<%= chirp.id %>" method="post"><input type="submit" value="Like" name="like"></input>
-        </form> Likes: <%= chirp.likes.count %>
-      </div>
+        <div class="card-action">
+          <p class="white-text"><a href="/chirps/new">Chirpeet</a> | Total Likes: <span class="light-blue-text"><%= chirp.likes.count %></span></p>
+          <form action="/like/<%= chirp.id %>" method="post"><input type="submit" value="Like" name="like" class="btn waves-effect waves-light light-blue"></input>
+          </form>
+        </div>
       <% end %>
     </div>
   </div>
