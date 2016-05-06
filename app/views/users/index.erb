@@ -1,0 +1,29 @@
+Welcome to the user index page!<br/><br/>
+
+Here's a list of all the users:<br/><br/>
+
+<div class="center">
+
+<table class="highlight centered">
+  <thead>
+    <tr>
+        <th data-field="username">Username</th>
+        <th data-field="first_name">First Name</th>
+        <th data-field="last_name">Last Name</th>
+        <th data-field="email">Email</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <a href="/users/<%= user.id %>">
+          <td><%= user.username %></td>
+          <td><%= user.first_name %></td>
+          <td><%= user.last_name %></td>
+          <td><%= user.email %></td>
+        </a>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

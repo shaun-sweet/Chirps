@@ -1,0 +1,54 @@
+<div class="container">
+  <div class="row center">
+
+    <h1 class="light-blue-text">Update User</h1>
+
+    <form class="col s12" action="/articles/<%= @user.id %>" method="post">
+      <input type="hidden" name="_method" value="put">
+      <!-- username -->
+      <div class="row">
+        <div class="input-field col s6">
+          <input id="username_input_text" name="user[username]" type="text" length="40" value="<%= @user.username %>">
+          <label for="username_input_text">Username</label>
+        </div>
+      </div>
+      <!-- first_name -->
+      <div class="row">
+        <div class="input-field col s6">
+          <input id="first_name_input_text" name="user[first_name]" type="text" length="50" value="<%= @user.first_name %>">
+          <label for="first_name_input_text">First Name</label>
+        </div>
+      </div>
+      <!-- last_name -->
+      <div class="row">
+        <div class="input-field col s6">
+          <input id="last_name_input_text" name="user[last_name]" type="text" length="50" value="<%= @user.last_name %>">
+          <label for="last_name_input_text">Last Name</label>
+        </div>
+      </div>
+      <!-- password -->
+      <div class="row">
+        <div class="input-field col s6">
+          <input id="password_input_text" name="user[password]" type="password" length="50" value="<%= @user.password %>">
+          <label for="password_input_text">Password</label>
+        </div>
+      </div>
+      <!-- image -->
+      <div class="row">
+        <div class="input-field col s6">
+          <input id="image_input_text" name="user[image]" type="text" length="200" value="<%= @user.image %>">
+          <label for="image_input_text">Image (link)</label>
+        </div>
+      </div>
+      <!-- Update Button -->
+      <div class="row">
+        <div class="input-field col s12">
+          <input type="submit" value="Update" class="waves-effect waves-light light-blue btn">
+        </div>
+      </div>
+    </form>
+
+  </div>
+</div>
+
+<a href="/users/<%= @user.id %>" class="waves-effect waves-light light-blue lighten-2 btn back-button"><< back</a>
