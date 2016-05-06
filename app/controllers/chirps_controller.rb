@@ -8,7 +8,7 @@ end
 post '/chirps' do
   @new_chirp = Chirp.create(body: params[:body])
   #redirect to chirp show page
-  redirect "/chirps/#{@new_chirp.id}"
+  redirect "/users/index"
 end
 
 get '/chirps' do
