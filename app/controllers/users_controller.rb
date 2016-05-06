@@ -5,6 +5,22 @@ get '/users' do
   erb :'users/index'
 end
 
+# New action
+get '/users/new' do
+  erb :'users/new'
+end
+
+# Create action
+post '/users' do
+  @user = User.new(params[:user])
+
+  if @user.save
+    redirect '/users'
+  else
+    redirect '/users/new?error=Oops!%20The%20user%20was%20not%20created.'
+  end
+end
+
 # Show action
 get '/users/:id' do
   logged_in?
@@ -30,22 +46,6 @@ put '/users/:id' do
     redirect '/users'
   else
     erb :'users/edit?errors=User%20was%20not%20updated.'
-  end
-end
-
-# New action
-get '/users/new' do
-  erb :'users/new'
-end
-
-# Create action
-post '/users' do
-  @user = User.new(params[:user])
-
-  if @user.save
-    redirect '/users'
-  else
-    redirect '/users/new?error=Oops!%20The%20user%20was%20not%20created.'
   end
 end
 

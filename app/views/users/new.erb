@@ -1,10 +1,9 @@
 <div class="container">
   <div class="row center">
 
-    <h1 class="light-blue-text">Update User</h1>
+    <h1 class="light-blue-text">Create User</h1>
 
-    <form class="col s12" action="/articles/<%= @user.id %>" method="post">
-      <input type="hidden" name="_method" value="put">
+    <form class="col s12" action="/users" method="post">
       <!-- username -->
       <div class="row">
         <div class="input-field col s6">
@@ -51,4 +50,4 @@
   </div>
 </div>
 
-<a href="/users/<%= @user.id %>" class="waves-effect waves-light light-blue lighten-2 btn back-button"><< back</a>
+<a href="/" class="waves-effect waves-light light-blue lighten-2 btn back-button">Back</a>
