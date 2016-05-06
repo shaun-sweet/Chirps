@@ -105,4 +105,4 @@ DEPENDENCIES
   sinatra-contrib
 
 BUNDLED WITH
-   1.12.1
+   1.11.2
