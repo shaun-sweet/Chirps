@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
   has_secure_password
   validates :email, presence: true, length: {maximum: 250}, uniqueness: true
   validates :email, format: {:with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i}
-  validates :first_name, presence: true, length: { in: 3..100 }
-  validates :last_name, presence: true, length: { in: 3..100 }
+  validates :first_name, length: { in: 3..100 }
+  validates :last_name, length: { in: 3..100 }
   validates :image, format: {:with => URI.regexp}
 end
