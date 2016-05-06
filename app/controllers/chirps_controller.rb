@@ -10,7 +10,7 @@ post '/chirps' do
   logged_in?
   @new_chirp = Chirp.create(body: params[:body])
   #redirect to chirp show page
-  redirect "/users/index"
+  redirect "/users"
 end
 
 get '/chirps' do
